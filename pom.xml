@@ -30,7 +30,8 @@
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<version>1.18.12</version>
+			<!--lombok 1.18.12 cause issue with jackson, so using older version of lombok-->
+			<version>1.16.18</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>

@@ -1,10 +1,9 @@
 package com.vietle.angularecommercebackend.domain;
 
-import lombok.Builder;
-import lombok.Data;
+import lombok.*;
 
-@Data
 @Builder
+@Data
 public class Item {
     private int id;
     private String name;

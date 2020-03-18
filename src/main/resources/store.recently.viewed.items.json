@@ -1,32 +1,32 @@
 [
   {
     "id": 1,
-    "name": "most viewed item name 1",
+    "name": "recently viewed item name 1",
     "imgurl": "https://semantic-ui.com/images/wireframe/image.png"
   },
   {
     "id": 2,
-    "name": "most viewed item name 2",
+    "name": "recently viewed item name 2",
     "imgurl": "https://semantic-ui.com/images/wireframe/image.png"
   },
   {
     "id": 3,
-    "name": "most viewed item name 3",
+    "name": "recently viewed item name 3",
     "imgurl": "https://semantic-ui.com/images/wireframe/image.png"
   },
   {
     "id": 4,
-    "name": "most viewed item name 4",
+    "name": "recently viewed item name 4",
     "imgurl": "https://semantic-ui.com/images/wireframe/image.png"
   },
   {
     "id": 5,
-    "name": "most viewed item name 5",
+    "name": "recently viewed item name 5",
     "imgurl": "https://semantic-ui.com/images/wireframe/image.png"
   },
   {
     "id": 6,
-    "name": "most viewed item name 6",
+    "name": "recently viewed item name 6",
     "imgurl": "https://semantic-ui.com/images/wireframe/image.png"
   }
 ]
