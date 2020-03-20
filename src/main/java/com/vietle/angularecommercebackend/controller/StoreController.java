@@ -23,7 +23,7 @@ public class StoreController {
     @Autowired
     private StoreService storeService;
 
-    @GetMapping("/store/items")
+    @GetMapping("/store")
     public ResponseEntity<StoreItemsResponse> retrieveItemsForStore() throws EcommerceException {
         List<Item> mostViewedItems = this.storeService.retrieveMostViewedItems();
         List<Item> recentlyViewedItems = this.storeService.retrieveRecentlyViewedItems();

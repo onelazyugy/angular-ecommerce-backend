@@ -23,7 +23,7 @@ public class HomeController {
     @Autowired
     private HomeService homeService;
 
-    @GetMapping("/home/items")
+    @GetMapping("/home")
     public ResponseEntity<HomeItemsResponse> retrieveItemsForHome() throws EcommerceException {
         List<Item> newArrivalItems = this.homeService.retrieveNewArrivalItems();
         List<Item> discountedItems = this.homeService.retrieveDiscountedItems();
