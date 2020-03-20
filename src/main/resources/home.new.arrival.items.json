@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": "new arrival item name 1",
+    "imgurl": "https://semantic-ui.com/images/wireframe/image.png"
+  },
+  {
+    "id": 2,
+    "name": "new arrival viewed item name 2",
+    "imgurl": "https://semantic-ui.com/images/wireframe/image.png"
+  },
+  {
+    "id": 3,
+    "name": "new arrival viewed item name 3",
+    "imgurl": "https://semantic-ui.com/images/wireframe/image.png"
+  },
+  {
+    "id": 4,
+    "name": "new arrival viewed item name 4",
+    "imgurl": "https://semantic-ui.com/images/wireframe/image.png"
+  },
+  {
+    "id": 5,
+    "name": "new arrival viewed item name 5",
+    "imgurl": "https://semantic-ui.com/images/wireframe/image.png"
+  },
+  {
+    "id": 6,
+    "name": "new arrival viewed item name 6",
+    "imgurl": "https://semantic-ui.com/images/wireframe/image.png"
+  }
+]
