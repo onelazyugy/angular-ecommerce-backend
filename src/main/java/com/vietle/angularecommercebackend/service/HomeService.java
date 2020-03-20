@@ -14,8 +14,16 @@ public class HomeService {
     @Qualifier("newArrivalItem")
     private ViewItem newArrivalItem;
 
-    public List<Item> retrieveMostViewedItems() throws EcommerceException {
+    @Autowired
+    @Qualifier("discountedItem")
+    private ViewItem discountedItem;
+
+    public List<Item> retrieveNewArrivalItems() throws EcommerceException {
         return this.newArrivalItem.retrieveItems();
+    }
+
+    public List<Item> retrieveDiscountedItems() throws EcommerceException {
+        return this.discountedItem.retrieveItems();
     }
 
 }
