@@ -2,31 +2,31 @@
   {
     "id": 1,
     "name": "recently viewed item name 1",
-    "imgurl": "https://semantic-ui.com/images/wireframe/image.png"
+    "imgurl": "https://picsum.photos/150"
   },
   {
     "id": 2,
     "name": "recently viewed item name 2",
-    "imgurl": "https://semantic-ui.com/images/wireframe/image.png"
+    "imgurl": "https://picsum.photos/150"
   },
   {
     "id": 3,
     "name": "recently viewed item name 3",
-    "imgurl": "https://semantic-ui.com/images/wireframe/image.png"
+    "imgurl": "https://picsum.photos/150"
   },
   {
     "id": 4,
     "name": "recently viewed item name 4",
-    "imgurl": "https://semantic-ui.com/images/wireframe/image.png"
+    "imgurl": "https://picsum.photos/150"
   },
   {
     "id": 5,
     "name": "recently viewed item name 5",
-    "imgurl": "https://semantic-ui.com/images/wireframe/image.png"
+    "imgurl": "https://picsum.photos/150"
   },
   {
     "id": 6,
     "name": "recently viewed item name 6",
-    "imgurl": "https://semantic-ui.com/images/wireframe/image.png"
+    "imgurl": "https://picsum.photos/150"
   }
 ]
