@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "name": "electronic item name 1",
+    "imgurl": "https://picsum.photos/150",
+    "price": 10.99
+  },
+  {
+    "id": 2,
+    "name": "electronic item name 2",
+    "imgurl": "https://picsum.photos/150",
+    "price": 40.99
+  },
+  {
+    "id": 3,
+    "name": "electronic item name 3",
+    "imgurl": "https://picsum.photos/150",
+    "price": 5.99
+  },
+  {
+    "id": 4,
+    "name": "electronic item name 4",
+    "imgurl": "https://picsum.photos/150",
+    "price": 14.99
+  },
+  {
+    "id": 5,
+    "name": "electronic item name 5",
+    "imgurl": "https://picsum.photos/150",
+    "price": 12.95
+  },
+  {
+    "id": 6,
+    "name": "electronic item name 6",
+    "imgurl": "https://picsum.photos/150",
+    "price": 9.99
+  }
+]
