@@ -21,7 +21,7 @@ public class BookItem implements ViewItem{
     @Override
     public List<Item> retrieveItems() throws EcommerceException {
         try {
-            File file = ResourceUtils.getFile("classpath:electronic.items.json");
+            File file = ResourceUtils.getFile("classpath:book.items.json");
             String content = new String(Files.readAllBytes(file.toPath()));
             List<Item> bookItems = objectMapper.readValue(content, new TypeReference<List<Item>>(){});
             return bookItems;
