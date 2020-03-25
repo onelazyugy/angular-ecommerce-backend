@@ -2,31 +2,37 @@
   {
     "id": 1,
     "name": "new arrival item name 1",
-    "imgurl": "https://picsum.photos/150"
+    "imgurl": "https://picsum.photos/150",
+    "price": 2.99
   },
   {
     "id": 2,
     "name": "new arrival viewed item name 2",
-    "imgurl": "https://picsum.photos/150"
+    "imgurl": "https://picsum.photos/150",
+    "price": 10.99
   },
   {
     "id": 3,
     "name": "new arrival viewed item name 3",
-    "imgurl": "https://picsum.photos/150"
+    "imgurl": "https://picsum.photos/150",
+    "price": 49.99
   },
   {
     "id": 4,
     "name": "new arrival viewed item name 4",
-    "imgurl": "https://picsum.photos/150"
+    "imgurl": "https://picsum.photos/150",
+    "price": 25.99
   },
   {
     "id": 5,
     "name": "new arrival viewed item name 5",
-    "imgurl": "https://picsum.photos/150"
+    "imgurl": "https://picsum.photos/150",
+    "price": 11.99
   },
   {
     "id": 6,
     "name": "new arrival viewed item name 6",
-    "imgurl": "https://picsum.photos/150"
+    "imgurl": "https://picsum.photos/150",
+    "price": 8.99
   }
 ]
