@@ -3,36 +3,42 @@
     "id": 1,
     "name": "clothing item name 1",
     "imgurl": "https://picsum.photos/150",
-    "price": 10.99
+    "price": 10.99,
+    "category": 100
   },
   {
     "id": 2,
     "name": "clothing item name 2",
     "imgurl": "https://picsum.photos/150",
-    "price": 40.99
+    "price": 40.99,
+    "category": 100
   },
   {
     "id": 3,
     "name": "clothing item name 3",
     "imgurl": "https://picsum.photos/150",
-    "price": 5.99
+    "price": 5.99,
+    "category": 100
   },
   {
     "id": 4,
     "name": "clothing item name 4",
     "imgurl": "https://picsum.photos/150",
-    "price": 14.99
+    "price": 14.99,
+    "category": 100
   },
   {
     "id": 5,
     "name": "clothing item name 5",
     "imgurl": "https://picsum.photos/150",
-    "price": 12.95
+    "price": 12.95,
+    "category": 100
   },
   {
     "id": 6,
     "name": "clothing item name 6",
     "imgurl": "https://picsum.photos/150",
-    "price": 9.99
+    "price": 9.99,
+    "category": 100
   }
 ]
