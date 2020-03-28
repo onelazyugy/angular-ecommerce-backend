@@ -25,7 +25,9 @@ public class ItemService {
             File file = ResourceUtils.getFile("classpath:"+jsonFile);
             String content = new String(Files.readAllBytes(file.toPath()));
             List<Item> items = objectMapper.readValue(content, new TypeReference<List<Item>>(){});
-            Item itemFound = items.stream().filter(item -> item.getId() == id && item.getCategory() == category).findAny().orElseThrow(() -> new EcommerceException("Item not found!", 500));
+            Item itemFound = items.stream()
+                    .filter(item -> item.getId() == id && item.getCategory() == category)
+                    .findAny().orElseThrow(() -> new EcommerceException("Item not found!", 500));
             return itemFound;
         } catch (IOException fnfe) {
             throw new EcommerceException(fnfe.getMessage(), 500);

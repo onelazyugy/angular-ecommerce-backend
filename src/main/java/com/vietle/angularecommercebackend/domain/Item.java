@@ -12,4 +12,5 @@ public class Item {
     private String imgurl;
     private BigDecimal price;
     private int category;
+    private String description;
 }

@@ -2,6 +2,7 @@
   {
     "id": 1,
     "name": "electronic item name 1",
+    "description": "If you look at what you have in life, you’ll always have more. If you look at what you don’t have in life, you’ll never have enough.",
     "imgurl": "https://picsum.photos/150",
     "price": 10.99,
     "category": 102
@@ -9,6 +10,7 @@
   {
     "id": 2,
     "name": "electronic item name 2",
+    "description": "If you look at what you have in life, you’ll always have more. If you look at what you don’t have in life, you’ll never have enough.",
     "imgurl": "https://picsum.photos/150",
     "price": 40.99,
     "category": 102
@@ -16,6 +18,7 @@
   {
     "id": 3,
     "name": "electronic item name 3",
+    "description": "If you look at what you have in life, you’ll always have more. If you look at what you don’t have in life, you’ll never have enough.",
     "imgurl": "https://picsum.photos/150",
     "price": 5.99,
     "category": 102
@@ -23,6 +26,7 @@
   {
     "id": 4,
     "name": "electronic item name 4",
+    "description": "If you look at what you have in life, you’ll always have more. If you look at what you don’t have in life, you’ll never have enough.",
     "imgurl": "https://picsum.photos/150",
     "price": 14.99,
     "category": 102
@@ -30,6 +34,7 @@
   {
     "id": 5,
     "name": "electronic item name 5",
+    "description": "If you look at what you have in life, you’ll always have more. If you look at what you don’t have in life, you’ll never have enough.",
     "imgurl": "https://picsum.photos/150",
     "price": 12.95,
     "category": 102
@@ -37,6 +42,7 @@
   {
     "id": 6,
     "name": "electronic item name 6",
+    "description": "If you look at what you have in life, you’ll always have more. If you look at what you don’t have in life, you’ll never have enough.",
     "imgurl": "https://picsum.photos/150",
     "price": 9.99,
     "category": 102
