@@ -31,7 +31,6 @@ public class MongoConfig extends AbstractMongoClientConfiguration {
     @Value("${spring.data.mongodb.retryWrites}")
     private boolean retryWrites;
 
-
     @Override
     @Bean
     public MongoClient mongoClient() {
