@@ -2,6 +2,7 @@ package com.vietle.angularecommercebackend.repo;
 
 import com.vietle.angularecommercebackend.domain.User;
 import com.vietle.angularecommercebackend.exception.EcommerceException;
+import com.vietle.angularecommercebackend.service.MongoSequenceService;
 import com.vietle.angularecommercebackend.util.EcommerceUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -15,11 +16,16 @@ import java.util.List;
 public class UserRepositoryImpl implements UserRepository {
     @Autowired
     private MongoTemplate mongoTemplate;
+    @Autowired
+    private MongoSequenceService mongoSequenceService;
 
     @Override
     public User save(User user) throws EcommerceException {
+        int nextSequence = mongoSequenceService.getNextSequence("mongoCustomSequence");
+        user.setId(nextSequence);
         user.setPassword(EcommerceUtil.hash(user.getPassword()));
         User savedUser = mongoTemplate.save(user);
+        //TODO: check savedUser and handle exception
         savedUser.setPassword(null);
         return savedUser;
     }
