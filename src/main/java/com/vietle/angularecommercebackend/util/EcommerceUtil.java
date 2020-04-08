@@ -1,7 +1,9 @@
 package com.vietle.angularecommercebackend.util;
 
+import com.google.common.hash.Hashing;
 import com.vietle.angularecommercebackend.Constant;
 
+import java.nio.charset.StandardCharsets;
 import java.sql.Timestamp;
 import java.util.Date;
 import java.util.HashMap;
@@ -24,5 +26,12 @@ public class EcommerceUtil {
         categoryToJSONFileMap.put(Constant.STORE_RECENTLY_VIEWED_ITEM_CATEGORY, Constant.STORE_RECENTLY_VIEWED_ITEM_JSON);
 
         return categoryToJSONFileMap.get(category);
+    }
+
+    public static String hash(String string) {
+        String sha256hexString = Hashing.sha256()
+                .hashString(string, StandardCharsets.UTF_8)
+                .toString();
+        return sha256hexString;
     }
 }
