@@ -22,7 +22,6 @@ public class UserRepositoryImpl implements UserRepository {
     @Override
     public User save(User user) throws EcommerceException {
         int nextSequence = mongoSequenceService.getNextSequence("mongoCustomSequence");
-        //TODO: validate password and confirmPassword here before hashing
         user.setId(nextSequence);
         user.setPassword(EcommerceUtil.hash(user.getPassword()));
         user.setConfirmPassword(null);

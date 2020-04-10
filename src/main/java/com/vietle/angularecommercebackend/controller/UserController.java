@@ -28,6 +28,7 @@ public class UserController {
     public ResponseEntity<UserResponse> registerUser(@RequestBody User user) throws EcommerceException {
         LOG.info("/register: " + user.getEmail());
         User savedUser = this.userRepository.save(user);
+        //TODO: validation
         String transactionId = UUID.randomUUID().toString();
         Status status = Status.builder().statusCd(200).message(Constant.SUCCESS).transactionId(transactionId).timestamp(EcommerceUtil.getTimestamp()).build();
         UserResponse userResponse = UserResponse.builder().user(savedUser).status(status).success(true).build();
