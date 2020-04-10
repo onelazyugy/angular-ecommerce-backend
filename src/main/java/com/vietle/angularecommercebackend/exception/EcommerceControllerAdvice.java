@@ -15,7 +15,8 @@ public class EcommerceControllerAdvice extends ResponseEntityExceptionHandler {
     @ExceptionHandler(EcommerceException.class)
     public ResponseEntity<Object> handleEcommerceException(EcommerceException ex, WebRequest request) {
         Status status = Status.builder().statusCd(ex.getStatusCd()).message(ex.getMessage()).timestamp(EcommerceUtil.getTimestamp()).build();
-        return new ResponseEntity<>(status, HttpStatus.INTERNAL_SERVER_ERROR);
+        int statusCd = ex.getStatusCd();
+        return new ResponseEntity<>(status, HttpStatus.resolve(statusCd));
     }
 
     @ExceptionHandler(Exception.class)

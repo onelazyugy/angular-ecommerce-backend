@@ -7,6 +7,7 @@ import com.vietle.angularecommercebackend.domain.UserResponse;
 import com.vietle.angularecommercebackend.exception.EcommerceException;
 import com.vietle.angularecommercebackend.repo.UserRepository;
 import com.vietle.angularecommercebackend.util.EcommerceUtil;
+import com.vietle.angularecommercebackend.util.Validation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,8 +28,8 @@ public class UserController {
     @PostMapping("/register")
     public ResponseEntity<UserResponse> registerUser(@RequestBody User user) throws EcommerceException {
         LOG.info("/register: " + user.getEmail());
+        Validation.validateUserRegistrationInfo(user);
         User savedUser = this.userRepository.save(user);
-        //TODO: validation
         String transactionId = UUID.randomUUID().toString();
         Status status = Status.builder().statusCd(200).message(Constant.SUCCESS).transactionId(transactionId).timestamp(EcommerceUtil.getTimestamp()).build();
         UserResponse userResponse = UserResponse.builder().user(savedUser).status(status).success(true).build();
@@ -40,6 +41,7 @@ public class UserController {
     @PostMapping("/login")
     public ResponseEntity<UserResponse> login(@RequestBody User user) throws EcommerceException {
         LOG.info("/login: " + user.getEmail());
+        Validation.validateUserLoginInfo(user);
         User retrievedUser = this.userRepository.retrieve(user);
         String transactionId = UUID.randomUUID().toString();
         Status status = Status.builder().statusCd(200).message(Constant.SUCCESS).transactionId(transactionId).timestamp(EcommerceUtil.getTimestamp()).build();

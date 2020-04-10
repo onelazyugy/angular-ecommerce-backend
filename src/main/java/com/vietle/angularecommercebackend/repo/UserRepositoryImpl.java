@@ -52,7 +52,7 @@ public class UserRepositoryImpl implements UserRepository {
         query.addCriteria(Criteria.where("email").is(user.getEmail().trim()));
         query.addCriteria(Criteria.where("password").is(EcommerceUtil.hash(user.getPassword().trim())));
         List<User> foundUsers = this.mongoTemplate.find(query, User.class);
-        User foundUser = foundUsers.stream().findFirst().orElseThrow(() -> new EcommerceException("invalid login!", 500));
+        User foundUser = foundUsers.stream().findFirst().orElseThrow(() -> new EcommerceException("invalid login!", 400));
         foundUser.setPassword(null);
         return foundUser;
     }
