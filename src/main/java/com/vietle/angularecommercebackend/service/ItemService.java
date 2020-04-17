@@ -4,11 +4,13 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.vietle.angularecommercebackend.domain.Item;
 import com.vietle.angularecommercebackend.exception.EcommerceException;
+import com.vietle.angularecommercebackend.security.JwtTokenProvider;
 import com.vietle.angularecommercebackend.util.EcommerceUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ResourceUtils;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -19,8 +21,13 @@ public class ItemService {
     @Autowired
     private ObjectMapper objectMapper;
 
-    public Item retrieveItem(int id, int category) throws EcommerceException {
+    @Autowired
+    private JwtTokenProvider jwtTokenProvider;
+
+    public Item retrieveItem(int id, int category, HttpServletRequest req) throws EcommerceException {
         try {
+            String username = jwtTokenProvider.getUsername(jwtTokenProvider.resolveToken(req));
+
             String jsonFile = EcommerceUtil.getJSONFileBasedOnCategory(category);
             File file = ResourceUtils.getFile("classpath:"+jsonFile);
             String content = new String(Files.readAllBytes(file.toPath()));

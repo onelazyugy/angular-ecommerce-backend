@@ -9,4 +9,5 @@ public class UserResponse {
     private Status status;
     private User user;
     private boolean success;
+    private String token;
 }

@@ -46,7 +46,7 @@ public class UserController {
         User retrievedUser = this.userRepository.retrieve(user);
         String transactionId = UUID.randomUUID().toString();
         Status status = Status.builder().statusCd(200).message(Constant.SUCCESS).transactionId(transactionId).timestamp(EcommerceUtil.getTimestamp()).build();
-        UserResponse userResponse = UserResponse.builder().user(retrievedUser).status(status).success(true).build();
+        UserResponse userResponse = UserResponse.builder().user(retrievedUser).status(status).success(true).token(retrievedUser.getToken()).build();
         ResponseEntity<UserResponse> responseEntity = new ResponseEntity<>(userResponse, HttpStatus.OK);
         LOG.info("/login response: " + responseEntity.getBody());
         return responseEntity;

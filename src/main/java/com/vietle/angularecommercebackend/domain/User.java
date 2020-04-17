@@ -20,4 +20,5 @@ public class User {
     private String signupDate;
     private Order order;
     private List<Role> roles;
+    private String token;
 }
