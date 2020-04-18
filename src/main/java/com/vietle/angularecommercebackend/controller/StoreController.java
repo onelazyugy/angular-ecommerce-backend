@@ -3,7 +3,7 @@ package com.vietle.angularecommercebackend.controller;
 import com.vietle.angularecommercebackend.Constant;
 import com.vietle.angularecommercebackend.domain.Item;
 import com.vietle.angularecommercebackend.domain.Status;
-import com.vietle.angularecommercebackend.domain.StoreItemsResponse;
+import com.vietle.angularecommercebackend.domain.response.StoreItemsResponse;
 import com.vietle.angularecommercebackend.exception.EcommerceException;
 import com.vietle.angularecommercebackend.service.StoreService;
 import com.vietle.angularecommercebackend.util.EcommerceUtil;

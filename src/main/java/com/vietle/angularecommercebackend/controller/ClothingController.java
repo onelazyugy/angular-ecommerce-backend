@@ -1,8 +1,7 @@
 package com.vietle.angularecommercebackend.controller;
 
 import com.vietle.angularecommercebackend.Constant;
-import com.vietle.angularecommercebackend.domain.BookResponse;
-import com.vietle.angularecommercebackend.domain.ClothingResponse;
+import com.vietle.angularecommercebackend.domain.response.ClothingResponse;
 import com.vietle.angularecommercebackend.domain.Item;
 import com.vietle.angularecommercebackend.domain.Status;
 import com.vietle.angularecommercebackend.exception.EcommerceException;

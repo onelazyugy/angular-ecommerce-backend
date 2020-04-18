@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
 @Builder
-@Document(collection = "mongoCustomSequence")
+@Document(collection = "sequence")
 public class MongoCustomSequence {
     @Id
     private String id;

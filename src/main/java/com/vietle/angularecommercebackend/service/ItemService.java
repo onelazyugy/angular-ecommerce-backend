@@ -26,8 +26,6 @@ public class ItemService {
 
     public Item retrieveItem(int id, int category, HttpServletRequest req) throws EcommerceException {
         try {
-            String username = jwtTokenProvider.getUsername(jwtTokenProvider.resolveToken(req));
-
             String jsonFile = EcommerceUtil.getJSONFileBasedOnCategory(category);
             File file = ResourceUtils.getFile("classpath:"+jsonFile);
             String content = new String(Files.readAllBytes(file.toPath()));

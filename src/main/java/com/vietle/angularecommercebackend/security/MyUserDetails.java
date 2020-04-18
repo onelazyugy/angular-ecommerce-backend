@@ -32,13 +32,13 @@ public class MyUserDetails implements UserDetailsService {
             LOG.error("error finding user");//TODO:
         }
         return org.springframework.security.core.userdetails.User//
-                .withUsername(email)//
-                .password(foundUser.getPassword())//
-                .authorities(foundUser.getRoles())//
-                .accountExpired(false)//
-                .accountLocked(false)//
-                .credentialsExpired(false)//
-                .disabled(false)//
+                .withUsername(email)
+                .password(foundUser.getPassword())
+                .authorities(foundUser.getRoles())
+                .accountExpired(false)
+                .accountLocked(false)
+                .credentialsExpired(false)
+                .disabled(false)
                 .build();
     }
 
