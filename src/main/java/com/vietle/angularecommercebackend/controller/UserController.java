@@ -46,5 +46,4 @@ public class UserController {
         ResponseEntity<UserResponse> responseEntity = new ResponseEntity<>(loginResponse, HttpStatus.OK);
         return responseEntity;
     }
-
 }

@@ -22,16 +22,8 @@ public class JwtTokenProvider {
     @Value("${security.jwt.token.secret-key}")
     private String secretKey;
 
-    @Value("${security.jwt.token.expire-length}")
-    private long validityInMilliseconds;
-
     @Autowired
     private MyUserDetails myUserDetails;
-
-    @PostConstruct
-    protected void init() {
-//        secretKey = Base64.getEncoder().encodeToString(secretKey.getBytes());
-    }
 
     public Authentication getAuthentication(String token) {
         UserDetails userDetails = myUserDetails.loadUserByUsername(getUsername(token));

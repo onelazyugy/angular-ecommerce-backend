@@ -7,12 +7,11 @@ import com.vietle.angularecommercebackend.domain.response.Token;
 import com.vietle.angularecommercebackend.domain.response.UserResponse;
 import com.vietle.angularecommercebackend.exception.EcommerceException;
 import com.vietle.angularecommercebackend.repo.UserRepository;
-import com.vietle.angularecommercebackend.security.JwtUtil;
+import com.vietle.angularecommercebackend.security.JwtHelper;
 import com.vietle.angularecommercebackend.util.EcommerceUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
@@ -20,18 +19,15 @@ import java.util.UUID;
 @Service
 public class UserService {
     private static Logger LOG = LoggerFactory.getLogger(UserService.class);
-    @Value("${security.jwt.token.secret-key}")
-    private String secretKey;
-    @Value("${security.jwt.token.expire-length}")
-    private long validityInMilliseconds;
+    @Autowired
+    private JwtHelper jwtHelper;
     @Autowired
     private UserRepository userRepository;
 
     public UserResponse login(User user) throws EcommerceException {
         String transactionId = UUID.randomUUID().toString();
         User retrievedUser = this.userRepository.retrieve(user);
-        String token = JwtUtil.createToken(retrievedUser.getEmail(), retrievedUser.getRoles(), this.validityInMilliseconds, this.secretKey);
-        LOG.info(token);
+        String token = jwtHelper.createToken(retrievedUser.getEmail(), retrievedUser.getRoles());
         Token accessToken = Token.builder().accessToken(token).build();
         Status status = Status.builder().statusCd(200).message(Constant.SUCCESS).transactionId(transactionId).timestamp(EcommerceUtil.getTimestamp()).build();
         //TODO: retrievedUser

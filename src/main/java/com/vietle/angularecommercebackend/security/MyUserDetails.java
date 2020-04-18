@@ -13,7 +13,6 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class MyUserDetails implements UserDetailsService {
-
     private static Logger LOG = LoggerFactory.getLogger(MyUserDetails.class);
 
     @Autowired
