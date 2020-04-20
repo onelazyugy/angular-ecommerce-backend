@@ -4,6 +4,8 @@ import com.vietle.angularecommercebackend.domain.User;
 import com.vietle.angularecommercebackend.exception.EcommerceException;
 import com.vietle.angularecommercebackend.service.MongoSequenceService;
 import com.vietle.angularecommercebackend.util.EcommerceUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -18,10 +20,11 @@ public class UserRepositoryImpl implements UserRepository {
     private MongoTemplate mongoTemplate;
     @Autowired
     private MongoSequenceService mongoSequenceService;
+    private static Logger LOG = LoggerFactory.getLogger(UserRepositoryImpl.class);
 
     @Override
     public User save(User user) throws EcommerceException {
-        int nextSequence = mongoSequenceService.getNextSequence("mongoCustomSequence");
+        int nextSequence = mongoSequenceService.getNextSequence("sequence");
         user.setId(nextSequence);
         user.setPassword(EcommerceUtil.hash(user.getPassword()));
         user.setConfirmPassword(null);
@@ -44,6 +47,15 @@ public class UserRepositoryImpl implements UserRepository {
     @Override
     public User retrieve(int id) throws EcommerceException {
         return null;
+    }
+
+    @Override
+    public User retrieve(String email) throws EcommerceException {
+        Query query = new Query();
+        query.addCriteria(Criteria.where("email").is(email.trim()));
+        List<User> foundUsers = this.mongoTemplate.find(query, User.class);
+        User foundUser = foundUsers.stream().findFirst().orElseThrow(() -> new EcommerceException("invalid login!", 400));
+        return foundUser;
     }
 
     @Override

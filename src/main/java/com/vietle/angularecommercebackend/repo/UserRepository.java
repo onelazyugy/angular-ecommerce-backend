@@ -8,5 +8,6 @@ public interface UserRepository {
     boolean delete(int id) throws EcommerceException;
     boolean update(User user) throws EcommerceException;
     User retrieve(int id) throws EcommerceException;
+    User retrieve(String email) throws EcommerceException;
     User retrieve(User user) throws EcommerceException;
 }
