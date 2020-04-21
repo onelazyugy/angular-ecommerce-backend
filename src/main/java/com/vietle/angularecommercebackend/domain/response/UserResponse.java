@@ -1,6 +1,7 @@
 package com.vietle.angularecommercebackend.domain.response;
 
 import com.vietle.angularecommercebackend.domain.Status;
+import com.vietle.angularecommercebackend.domain.Token;
 import com.vietle.angularecommercebackend.domain.User;
 import lombok.Builder;
 import lombok.Data;

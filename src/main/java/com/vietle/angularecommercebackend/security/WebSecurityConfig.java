@@ -41,6 +41,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/api/v1/home").permitAll()
                 .antMatchers("/api/v1/item-detail/**").permitAll()
                 .antMatchers("/api/v1/store").permitAll()
+                .antMatchers("/api/v1/cart/**").permitAll()
 
                 // Everything else will require jwt token
                 .anyRequest().authenticated();

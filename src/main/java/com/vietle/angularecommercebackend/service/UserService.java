@@ -2,8 +2,8 @@ package com.vietle.angularecommercebackend.service;
 
 import com.vietle.angularecommercebackend.Constant;
 import com.vietle.angularecommercebackend.domain.Status;
+import com.vietle.angularecommercebackend.domain.Token;
 import com.vietle.angularecommercebackend.domain.User;
-import com.vietle.angularecommercebackend.domain.response.Token;
 import com.vietle.angularecommercebackend.domain.response.UserResponse;
 import com.vietle.angularecommercebackend.exception.EcommerceException;
 import com.vietle.angularecommercebackend.repo.UserRepository;

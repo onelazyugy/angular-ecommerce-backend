@@ -1,4 +1,4 @@
-package com.vietle.angularecommercebackend.domain.response;
+package com.vietle.angularecommercebackend.domain;
 
 import lombok.Builder;
 import lombok.Data;
