@@ -1,6 +1,5 @@
 package com.vietle.angularecommercebackend.controller;
 
-import com.vietle.angularecommercebackend.domain.CartItem;
 import com.vietle.angularecommercebackend.domain.request.AddItemToCartRequest;
 import com.vietle.angularecommercebackend.domain.response.AddItemToCartResponse;
 import com.vietle.angularecommercebackend.exception.EcommerceException;
@@ -25,5 +24,4 @@ public class CartController {
         ResponseEntity<AddItemToCartResponse> responseEntity = new ResponseEntity<>(addItemToCartResponse, HttpStatus.OK);
         return responseEntity;
     }
-
 }

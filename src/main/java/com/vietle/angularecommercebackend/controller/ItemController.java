@@ -19,12 +19,12 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/api/v1/item")
 public class ItemController {
     @Autowired
     private ItemService itemService;
 
-    @GetMapping("/item-detail/{id}/{category}")
+    @GetMapping("/{id}/{category}")
     public ResponseEntity<ItemResponse> retrieveItemDetial(@PathVariable int id, @PathVariable int category, HttpServletRequest req) throws EcommerceException {
         Item item = this.itemService.retrieveItem(id, category, req);
         String transactionId = UUID.randomUUID().toString();

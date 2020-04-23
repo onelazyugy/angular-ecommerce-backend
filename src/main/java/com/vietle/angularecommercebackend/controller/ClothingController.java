@@ -18,13 +18,13 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/api/v1/clothing")
 public class ClothingController {
     @Autowired
     private ClothingService clothingService;
 
-    @GetMapping("/clothing")
-    public ResponseEntity<ClothingResponse> retrieveItemsForHome() throws EcommerceException {
+    @GetMapping("/items")
+    public ResponseEntity<ClothingResponse> retrieveItemsForClothing() throws EcommerceException {
         List<Item> clothingItems = this.clothingService.retrieveClothingItems();
         String transactionId = UUID.randomUUID().toString();
         Status status = Status.builder().statusCd(200).message(Constant.SUCCESS).transactionId(transactionId).timestamp(EcommerceUtil.getTimestamp()).build();

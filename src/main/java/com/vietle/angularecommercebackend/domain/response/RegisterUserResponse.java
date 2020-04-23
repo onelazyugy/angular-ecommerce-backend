@@ -5,12 +5,14 @@ import lombok.Builder;
 import lombok.Data;
 
 @Data
-public class AddItemToCartResponse extends Response {
+public class RegisterUserResponse extends Response {
     private boolean success;
+    private String email;
 
     @Builder
-    public AddItemToCartResponse(boolean success, Status status) {
+    public RegisterUserResponse(boolean success, String email, Status status) {
         super(status);
         this.success = success;
+        this.email = email;
     }
 }

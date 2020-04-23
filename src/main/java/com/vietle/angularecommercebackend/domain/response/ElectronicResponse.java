@@ -8,8 +8,12 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-@Builder
-public class ElectronicResponse {
-    private Status status;
+public class ElectronicResponse extends Response {
     private List<Item> electronicItems;
+
+    @Builder
+    public ElectronicResponse(Status status, List<Item> electronicItems) {
+        super(status);
+        this.electronicItems = electronicItems;
+    }
 }

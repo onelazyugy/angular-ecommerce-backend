@@ -8,9 +8,14 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-@Builder
-public class StoreItemsResponse {
-    private Status status;
+public class StoreItemsResponse extends Response{
     private List<Item> mostViewedItems;
     private List<Item> recentlyViewedItems;
+
+    @Builder
+    public StoreItemsResponse(Status status, List<Item> mostViewedItems, List<Item> recentlyViewedItems) {
+        super(status);
+        this.mostViewedItems = mostViewedItems;
+        this.recentlyViewedItems = recentlyViewedItems;
+    }
 }

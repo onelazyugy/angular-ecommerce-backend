@@ -23,10 +23,11 @@ public class CartService {
         CartItem cartItem = CartItem.builder().user(addItemToCartRequest.getUser())
                                             .item(addItemToCartRequest.getItem())
                                             .timestamp(EcommerceUtil.getTimestamp()).build();
-        CartItem cartItemSaved = cartRepository.add(cartItem);
+        if(!cartRepository.add(cartItem)) {
+            throw new EcommerceException("unable to add item to cart", 500);
+        }
         Status status = Status.builder().statusCd(200).message(Constant.SUCCESS).transactionId(transactionId).timestamp(EcommerceUtil.getTimestamp()).build();
-        AddItemToCartResponse addItemToCartResponse = AddItemToCartResponse.builder().status(status).cartItem(cartItemSaved).build();
-
+        AddItemToCartResponse addItemToCartResponse = AddItemToCartResponse.builder().status(status).success(true).build();
         return addItemToCartResponse;
     }
 }

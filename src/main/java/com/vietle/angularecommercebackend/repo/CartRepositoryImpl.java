@@ -13,14 +13,17 @@ public class CartRepositoryImpl implements CartRepository {
     private MongoTemplate mongoTemplate;
 
     @Autowired
-    private MongoCartSequenceService mongoCartSequenceService;
+    private MongoCartSequenceService seq;
 
     @Override
-    public CartItem add(CartItem cartItem) throws EcommerceException {
-        int sequence = mongoCartSequenceService.getNextSequence("sequence");
+    public boolean add(CartItem cartItem) {
+        int sequence = seq.getNextSequence("sequence");
         cartItem.setId(sequence);
-        CartItem cartItemSaved = mongoTemplate.save(cartItem);
-        return cartItemSaved;
+        CartItem savedCartItem = mongoTemplate.save(cartItem);
+        if(savedCartItem == null) {
+            return false;
+        }
+        return true;
     }
 
     @Override

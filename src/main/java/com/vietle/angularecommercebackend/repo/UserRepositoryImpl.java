@@ -35,7 +35,7 @@ public class UserRepositoryImpl implements UserRepository {
         List<Role> roleList = new ArrayList<>(1);
         roleList.add(Role.ROLE_USER); // hard code for now, need a UI in the admin screen to set role
         user.setRoles(roleList); // hard code for now, need a UI in the admin screen to set role
-
+        // TODO: check if email already exist
         User savedUser = mongoTemplate.save(user);
         //TODO: check savedUser and handle exception
         savedUser.setPassword(null);

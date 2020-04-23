@@ -4,7 +4,9 @@ import com.vietle.angularecommercebackend.Constant;
 import com.vietle.angularecommercebackend.domain.Status;
 import com.vietle.angularecommercebackend.domain.Token;
 import com.vietle.angularecommercebackend.domain.User;
-import com.vietle.angularecommercebackend.domain.response.UserResponse;
+import com.vietle.angularecommercebackend.domain.request.RegisterUserRequest;
+import com.vietle.angularecommercebackend.domain.response.LoginUserResponse;
+import com.vietle.angularecommercebackend.domain.response.RegisterUserResponse;
 import com.vietle.angularecommercebackend.exception.EcommerceException;
 import com.vietle.angularecommercebackend.repo.UserRepository;
 import com.vietle.angularecommercebackend.security.JwtHelper;
@@ -24,32 +26,30 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public UserResponse login(User user) throws EcommerceException {
+    public LoginUserResponse login(User user) throws EcommerceException {
         String transactionId = UUID.randomUUID().toString();
         User retrievedUser = this.userRepository.retrieve(user);
         String token = jwtHelper.createToken(retrievedUser.getEmail(), retrievedUser.getRoles());
         Token accessToken = Token.builder().accessToken(token).build();
         Status status = Status.builder().statusCd(200).message(Constant.SUCCESS).transactionId(transactionId).timestamp(EcommerceUtil.getTimestamp()).build();
-        //TODO: retrievedUser
-        UserResponse response = UserResponse.builder().user(retrievedUser).status(status).token(accessToken).build();
-        return response;
+        LoginUserResponse loginUserResponse = LoginUserResponse.builder().status(status).success(true).token(accessToken).build();
+        return loginUserResponse;
     }
 
-    public UserResponse register(User user) throws EcommerceException {
+    public RegisterUserResponse register(RegisterUserRequest registerUserRequest) throws EcommerceException {
         String transactionId = UUID.randomUUID().toString();
-        User retrievedUser = this.userRepository.save(user);
+        User retrievedUser = this.userRepository.save(registerUserRequest.getUser());
         Status status = Status.builder().statusCd(200).message(Constant.SUCCESS).transactionId(transactionId).timestamp(EcommerceUtil.getTimestamp()).build();
-        //TODO: retrievedUser
-        UserResponse response = UserResponse.builder().user(retrievedUser).status(status).token(null).build();
-        return response;
+        RegisterUserResponse registerUserResponse = RegisterUserResponse.builder().email(retrievedUser.getEmail()).success(true).status(status).build();
+        return registerUserResponse;
     }
 
-    public UserResponse findUserById(int id) throws EcommerceException{
-        String transactionId = UUID.randomUUID().toString();
-        User retrievedUser = this.userRepository.retrieve(id);
-        Status status = Status.builder().statusCd(200).message(Constant.SUCCESS).transactionId(transactionId).timestamp(EcommerceUtil.getTimestamp()).build();
-        //TODO: retrievedUser
-        UserResponse response = UserResponse.builder().user(retrievedUser).status(status).token(null).build();
-        return response;
-    }
+//    public UserResponse findUserById(int id) throws EcommerceException{
+//        String transactionId = UUID.randomUUID().toString();
+//        User retrievedUser = this.userRepository.retrieve(id);
+//        Status status = Status.builder().statusCd(200).message(Constant.SUCCESS).transactionId(transactionId).timestamp(EcommerceUtil.getTimestamp()).build();
+//        //TODO: retrievedUser
+//        UserResponse response = UserResponse.builder().user(retrievedUser).status(status).token(null).build();
+//        return response;
+//    }
 }

@@ -18,18 +18,17 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/api/v1/book")
 public class BookController {
     @Autowired
     private BookService bookService;
 
-    @GetMapping("/book")
-    public ResponseEntity<BookResponse> retrieveItemsForHome() throws EcommerceException {
-        List<Item> electronicItems = this.bookService.retrieveBookItems();
+    @GetMapping("/items")
+    public ResponseEntity<BookResponse> retrieveItemsForBook() throws EcommerceException {
+        List<Item> bookItems = this.bookService.retrieveBookItems();
         String transactionId = UUID.randomUUID().toString();
         Status status = Status.builder().statusCd(200).message(Constant.SUCCESS).transactionId(transactionId).timestamp(EcommerceUtil.getTimestamp()).build();
-
-        BookResponse bookResponse = BookResponse.builder().bookItems(electronicItems).status(status).build();
+        BookResponse bookResponse = BookResponse.builder().bookItems(bookItems).status(status).build();
         ResponseEntity<BookResponse> responseEntity = new ResponseEntity<>(bookResponse, HttpStatus.OK);
         return responseEntity;
     }

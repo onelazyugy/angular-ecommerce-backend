@@ -8,9 +8,15 @@ import lombok.Data;
 import java.util.List;
 
 @Data
-@Builder
-public class HomeItemsResponse {
-    private Status status;
+public class HomeItemsResponse extends Response {
     private List<Item> newArrivalItems;
     private List<Item> discountedItems;
+
+    @Builder
+    public HomeItemsResponse(Status status, List<Item> newArrivalItems, List<Item> discountedItems) {
+        super(status);
+        this.newArrivalItems = newArrivalItems;
+        this.discountedItems = discountedItems;
+    }
 }
+

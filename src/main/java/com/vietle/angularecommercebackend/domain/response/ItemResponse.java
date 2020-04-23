@@ -6,8 +6,12 @@ import lombok.Builder;
 import lombok.Data;
 
 @Data
-@Builder
-public class ItemResponse {
-    private Status status;
+public class ItemResponse extends Response {
     private Item item;
+
+    @Builder
+    public ItemResponse(Status status, Item item) {
+        super(status);
+        this.item = item;
+    }
 }

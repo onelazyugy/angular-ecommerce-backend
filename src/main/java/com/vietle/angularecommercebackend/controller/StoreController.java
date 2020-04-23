@@ -18,12 +18,12 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/api/v1/store")
 public class StoreController {
     @Autowired
     private StoreService storeService;
 
-    @GetMapping("/store")
+    @GetMapping("/items")
     public ResponseEntity<StoreItemsResponse> retrieveItemsForStore() throws EcommerceException {
         List<Item> mostViewedItems = this.storeService.retrieveMostViewedItems();
         List<Item> recentlyViewedItems = this.storeService.retrieveRecentlyViewedItems();

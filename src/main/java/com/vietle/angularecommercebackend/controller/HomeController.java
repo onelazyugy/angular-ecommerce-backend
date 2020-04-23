@@ -18,12 +18,12 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/api/v1/home")
 public class HomeController {
     @Autowired
     private HomeService homeService;
 
-    @GetMapping("/home")
+    @GetMapping("/items")
     public ResponseEntity<HomeItemsResponse> retrieveItemsForHome() throws EcommerceException {
         List<Item> newArrivalItems = this.homeService.retrieveNewArrivalItems();
         List<Item> discountedItems = this.homeService.retrieveDiscountedItems();
