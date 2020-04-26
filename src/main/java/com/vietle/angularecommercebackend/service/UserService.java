@@ -4,6 +4,7 @@ import com.vietle.angularecommercebackend.Constant;
 import com.vietle.angularecommercebackend.domain.Status;
 import com.vietle.angularecommercebackend.domain.Token;
 import com.vietle.angularecommercebackend.domain.User;
+import com.vietle.angularecommercebackend.domain.request.LoginUserRequest;
 import com.vietle.angularecommercebackend.domain.request.RegisterUserRequest;
 import com.vietle.angularecommercebackend.domain.response.LoginUserResponse;
 import com.vietle.angularecommercebackend.domain.response.RegisterUserResponse;
@@ -26,19 +27,21 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public LoginUserResponse login(User user) throws EcommerceException {
+    public LoginUserResponse login(LoginUserRequest loginUserRequest) throws EcommerceException {
         String transactionId = UUID.randomUUID().toString();
+        User user = User.builder().email(loginUserRequest.getEmail()).password(loginUserRequest.getPassword()).build();
         User retrievedUser = this.userRepository.retrieve(user);
         String token = jwtHelper.createToken(retrievedUser.getEmail(), retrievedUser.getRoles());
         Token accessToken = Token.builder().accessToken(token).build();
         Status status = Status.builder().statusCd(200).message(Constant.SUCCESS).transactionId(transactionId).timestamp(EcommerceUtil.getTimestamp()).build();
-        LoginUserResponse loginUserResponse = LoginUserResponse.builder().status(status).success(true).token(accessToken).build();
+        LoginUserResponse loginUserResponse = LoginUserResponse.builder().status(status).email(user.getEmail()).id(retrievedUser.getId()).success(true).token(accessToken).build();
         return loginUserResponse;
     }
 
     public RegisterUserResponse register(RegisterUserRequest registerUserRequest) throws EcommerceException {
         String transactionId = UUID.randomUUID().toString();
-        User retrievedUser = this.userRepository.save(registerUserRequest.getUser());
+        User user = User.builder().email(registerUserRequest.getEmail()).password(registerUserRequest.getPassword()).confirmPassword(registerUserRequest.getConfirmPassword()).build();
+        User retrievedUser = this.userRepository.save(user);
         Status status = Status.builder().statusCd(200).message(Constant.SUCCESS).transactionId(transactionId).timestamp(EcommerceUtil.getTimestamp()).build();
         RegisterUserResponse registerUserResponse = RegisterUserResponse.builder().email(retrievedUser.getEmail()).success(true).status(status).build();
         return registerUserResponse;

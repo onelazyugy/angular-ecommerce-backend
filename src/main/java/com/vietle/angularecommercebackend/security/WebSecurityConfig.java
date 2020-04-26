@@ -33,15 +33,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 // allow the following api w/out jwt token
                 .antMatchers("/actuator/health").permitAll()
-                .antMatchers("/api/v1/register").permitAll()
-                .antMatchers("/api/v1/login").permitAll()
-                .antMatchers("/api/v1/book").permitAll()
-                .antMatchers("/api/v1/clothing").permitAll()
-                .antMatchers("/api/v1/electronic").permitAll()
-                .antMatchers("/api/v1/home").permitAll()
-                .antMatchers("/api/v1/item-detail/**").permitAll()
-                .antMatchers("/api/v1/store").permitAll()
-                .antMatchers("/api/v1/cart/**").permitAll()
+                .antMatchers("/api/v1/user/register").permitAll()
+                .antMatchers("/api/v1/user/login").permitAll()
+                .antMatchers("/api/v1/book/items").permitAll()
+                .antMatchers("/api/v1/clothing/items").permitAll()
+                .antMatchers("/api/v1/electronic/items").permitAll()
+                .antMatchers("/api/v1/home/items").permitAll()
+                .antMatchers("/api/v1/item/**").permitAll()
+                .antMatchers("/api/v1/store/items").permitAll()
+                .antMatchers("/api/v1/cart/item").permitAll()
 
                 // Everything else will require jwt token
                 .anyRequest().authenticated();

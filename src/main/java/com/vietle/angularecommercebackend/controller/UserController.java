@@ -27,7 +27,7 @@ public class UserController {
 
     @PostMapping("/register")
     public ResponseEntity<RegisterUserResponse> registerUser(@RequestBody RegisterUserRequest request) throws EcommerceException {
-        LOG.info("/register: " + request.getUser().getEmail());
+        LOG.info("/register: " + request.getEmail());
         Validation.validateUserRegistrationInfo(request);
         RegisterUserResponse response = this.userService.register(request);
         ResponseEntity<RegisterUserResponse> responseEntity = new ResponseEntity<>(response, HttpStatus.OK);
@@ -37,9 +37,9 @@ public class UserController {
 
     @PostMapping("/login")
     public ResponseEntity<LoginUserResponse> login(@RequestBody LoginUserRequest request) throws EcommerceException {
-        LOG.info("/login: " + request.getUser().getEmail());
+        LOG.info("/login: " + request.getEmail());
         Validation.validateUserLoginInfo(request);
-        LoginUserResponse loginResponse = this.userService.login(request.getUser());
+        LoginUserResponse loginResponse = this.userService.login(request);
         ResponseEntity<LoginUserResponse> responseEntity = new ResponseEntity<>(loginResponse, HttpStatus.OK);
         LOG.info("/login response: " + responseEntity.getBody());
         return responseEntity;

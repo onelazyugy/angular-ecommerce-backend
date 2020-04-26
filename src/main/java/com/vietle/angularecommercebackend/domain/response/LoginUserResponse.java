@@ -8,12 +8,16 @@ import lombok.Data;
 @Data
 public class LoginUserResponse extends Response{
     private boolean success;
+    private String email;
+    private int id;
     private Token token;
 
     @Builder
-    public LoginUserResponse(boolean success, Token token, Status status) {
+    public LoginUserResponse(boolean success, String email, int id, Token token, Status status) {
         super(status);
         this.success = success;
+        this.email = email;
+        this.id = id;
         this.token = token;
     }
 }
